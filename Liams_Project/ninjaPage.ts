@@ -32,6 +32,12 @@ export class NinjaPage extends BasePage {
     loginBtn: By = By.xpath('//input[@value="Login"]')
     logoutBtn: By = By.xpath('(//a[@href="http://tutorialsninja.com/demo/index.php?route=account/logout"])[2]')
 
+    searchBar: By = By.xpath('//input[@name="search"]')
+    searchSubmitBtn: By = By.xpath('//button[@class="btn btn-default btn-lg"]')
+    appCin30: By = By.xpath('(//a[@href="http://tutorialsninja.com/demo/index.php?route=product/product&product_id=42&search=Apple+Cinema+30"])[1]')
+    appCin30Results: By = By.xpath('//div[@id="product-product"]')
+
+
     featMacBook: By = By.xpath('(//a[@href="http://tutorialsninja.com/demo/index.php?route=product/product&product_id=43"])[1]')
     featAppCin30: By = By.xpath('(//a[@href="http://tutorialsninja.com/demo/index.php?route=product/product&product_id=42"])[1]')
 

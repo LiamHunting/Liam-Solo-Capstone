@@ -150,12 +150,23 @@ describe("Testing suite for tutorialninja WebApp", () => {
         
     });
 
-    test("Login Loop", async () => {
+    test("Logging in Loop", async () => {
         for(let i = 0; i < newUserLogin.length; i++) {
             await login(newUserLogin[i]);
         };
     });
 
+    test("Search Bar With Text File", async () => {
+        await ninjaPage.driver.findElement(ninjaPage.searchBar).sendKeys("Apple Cinema 30");
+        await ninjaPage.click(ninjaPage.searchSubmitBtn);
+        await ninjaPage.click(ninjaPage.appCin30);
+        await ninjaPage.driver.wait(until.elementLocated(ninjaPage.appCin30Results));
+        let text = await ninjaPage.driver.findElement(ninjaPage.appCin30Results).getText();
+        expect(text).toContain("Apple Cinema 30");
+        await fs.writeFile(`${__dirname}/appleCinema30.txt`, text, (e) => {
+            if (e) console.error(e)
+            else console.log('save Succesful')
+        });
+    });
 
-    
 });
